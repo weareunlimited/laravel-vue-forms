@@ -1,0 +1,77 @@
+/* ================== Imports ================== */
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================== Table of contents ================== */
+
+/* ===== General ===== */
+
+/* ===== Typography ===== */
+
+/* ===== Buttons ===== */
+
+/* ===== Miscellaneous ===== */
+
+
+/* ================== Styles ================== */
+
+/* ===== General ===== */
+@layer base {
+
+  ::selection {
+    @apply
+    bg-unlimited-500
+    text-white
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply
+    font-light
+    text-xl
+    bg-white
+    text-white
+    hyphens-auto
+    antialiased
+    relative
+    min-h-full
+    min-h-screen
+    overflow-x-hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    @apply font-bold;
+  }
+}
+
+/* ===== Typography ===== */
+b {
+  @apply font-medium
+}
+
+/* ===== Miscellaneous ===== */
+/* Change Autocomplete styles in Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+-webkit-text-fill-color: #ffffff;
+transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Hide reCAPTCHA Badge */
+.grecaptcha-badge {
+  visibility: hidden;
+}
