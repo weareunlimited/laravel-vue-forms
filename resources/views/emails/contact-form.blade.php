@@ -17,6 +17,7 @@
     <p><b>Unternehmen:</b> {{ $data['form-company'] }}</p>
     <p><b>Telefon:</b> {{ $data['form-tel'] }}</p>
     <p><b>Beschreibung:</b> {{ $data['form-comment'] }}</p>
+    <p><b>Zeitraum:</b> {{ $data['form-date'] }}</p>
 
     <h2>Budget</h2>
     <ul>

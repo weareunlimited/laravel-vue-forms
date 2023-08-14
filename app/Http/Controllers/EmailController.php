@@ -42,6 +42,7 @@ class EmailController extends Controller
             'form-tel' => 'nullable|phone:AUTO,DE,US,EU',
             'form-mail' => 'required|email',
             'form-comment' => 'nullable|string|min:10|max:500',
+            'form-date' => 'required',
             'items.*.selected.name' => [
                 'required',
                 function ($attribute, $value, $fail) {
@@ -53,7 +54,7 @@ class EmailController extends Controller
             'items2.*.selected.name' => [
                 'required',
                 function ($attribute, $value, $fail) {
-                    if ($value === 'Auswahl') {
+                    if ($value === 'Auswahl' || $value === '/') {
                         $fail('Bitte gebe die gewünschte Anzahl an.');
                     }
                 },
@@ -66,6 +67,7 @@ class EmailController extends Controller
             'form-mail.email' => 'Bitte gib eine gültige E-Mail-Adresse an.',
             'form-comment.min' => 'Deine Nachricht muss mindestens 10 Zeichen lang sein.',
             'form-comment.max' => 'Deine Nachricht darf maximal 500 Zeichen lang sein.',
+            'form-date.required' => 'Bitte geben Sie den gewünschten Zeitraum an.',
             'items.required' => 'Bitte wähle ein passendes Budget aus.',
             'services.*.selected.required' => 'Bitte wähle eine oder mehrere unserer Leistungen aus.',
         ]);

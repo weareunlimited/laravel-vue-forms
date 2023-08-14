@@ -15,6 +15,7 @@
 
 /* ===== Miscellaneous ===== */
 
+/* ===== Form styles ===== */
 
 /* ================== Styles ================== */
 
@@ -74,4 +75,81 @@ transition: background-color 5000s ease-in-out 0s;
 /* Hide reCAPTCHA Badge */
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+
+/* ===== Form styles ===== */
+/* DatePicker */
+.dp__theme_light {
+  /*General*/
+  --dp-font-family: "Helvetica Neue", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans",
+  "Helvetica Neue", sans-serif;
+  font-weight: 500 !important;
+  --dp-border-radius: 0; /*Configurable border-radius*/
+  --dp-cell-border-radius: 0; /*Specific border radius for the calendar cell*/
+  --dp-common-transition: all 0.1s ease-in; /*Generic transition applied on buttons and calendar cells*/
+
+  /*Sizing*/
+  --dp-button-height: 35px; /*Size for buttons in overlays*/
+  --dp-month-year-row-height: 35px; /*Height of the month-year select row*/
+  --dp-month-year-row-button-size: 35px; /*Specific height for the next/previous buttons*/
+  --dp-button-icon-height: 20px; /*Icon sizing in buttons*/
+  --dp-cell-size: 35px; /*Width and height of calendar cell*/
+  --dp-cell-padding: 5px; /*Padding in the cell*/
+  --dp-common-padding: 10px; /*Common padding used*/
+  --dp-input-icon-padding: 35px; /*Padding on the left side of the input if icon is present*/
+  --dp-input-padding: 6px 30px 6px 12px; /*Padding in the input*/
+  --dp-menu-min-width: 260px; /*Adjust the min width of the menu*/
+  --dp-action-buttons-padding: 2px 5px; /*Adjust padding for the action buttons in action row*/
+  --dp-row-maring:  5px 0; /*Adjust the spacing between rows in the calendar*/
+  --dp-calendar-header-cell-padding:  0.5rem; /*Adjust padding in calendar header cells*/
+  --dp-two-calendars-spacing:  10px; /*Space between multiple calendars*/
+  --dp-overlay-col-padding:  3px; /*Padding in the overlay column*/
+  --dp-time-inc-dec-button-size:  32px; /*Sizing for arrow buttons in the time picker*/
+  --dp-menu-padding: 6px 8px; /*Menu padding*/
+  
+  /*Font sizes*/
+  --dp-font-size: 1rem; /*Default font-size*/
+  --dp-preview-font-size: 0.8rem; /*Font size of the date preview in the action row*/
+  --dp-time-font-size: 0.8rem; /*Font size in the time picker*/
+  
+  /*Transitions*/
+  --dp-animation-duration: 0.1s; /*Transition duration*/
+  --dp-menu-appear-transition-timing: cubic-bezier(.4, 0, 1, 1); /*Timing on menu appear animation*/
+  --dp-transition-timing: ease-out; /*Timing on slide animations*/
+
+  --dp-action-buttons-padding: 5px 10px; /*Adjust padding for the action buttons in action row*/
+  --dp-action-button-height: 35px;
+   --dp-background-color: rgb(0 0 0) !important;
+   --dp-text-color: rgb(247 252 238) !important;
+   --dp-hover-color: #f3f3f3;
+   --dp-hover-text-color: rgb(247 252 238 / 1);
+   --dp-hover-icon-color: rgb(1 52 76) !important;
+   --dp-primary-color: #029ADF !important;
+   --dp-primary-text-color: #f8f5f5;
+   --dp-secondary-color: #c0c4cc;
+   --dp-border-color: rgb(247 252 238 / 0.2) !important;
+   --dp-menu-border-color: rgb(247 252 238 / 0.2) !important;
+   --dp-border-color-hover: rgb(247 252 238 / 1) !important;
+   --dp-disabled-color: #f6f6f6;
+   --dp-scroll-bar-background: #f3f3f3;
+   --dp-scroll-bar-color: #959595;
+   --dp-success-color: #76d275;
+   --dp-success-color-disabled: #a3d9b1;
+   --dp-icon-color: rgb(247 252 238 / 0.2) !important;
+   --dp-danger-color: #ff6f60;
+   --dp-highlight-color: rgba(25, 118, 210, 0.1);
+}
+
+.dp__action_button {
+  line-height: 1 !important;
+  margin-left: 8px !important;
+}
+
+.dp__overlay_cell_disabled {
+  color: rgb(1 52 76) !important;
+}
+
+.dp__range_between {
+  color: rgb(1 52 76) !important;
 }

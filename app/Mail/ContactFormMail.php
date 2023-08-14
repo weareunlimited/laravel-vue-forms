@@ -26,7 +26,7 @@ class ContactFormMail extends Mailable
     {
         return $this->from(config('mail.from.address'))
             ->replyTo($this->email)
-            ->subject('Neue Lead-Anfrage von: ' . $this->name)
+            ->subject('New form submission from: ' . $this->name)
             ->view('emails.contact-form')
             ->with('data', $this->data);
     }

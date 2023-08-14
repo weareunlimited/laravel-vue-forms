@@ -57,6 +57,15 @@ const formFields = [
   }
 ];
 
+const dateField = [
+  {
+    label: 'Welcher Zeitraum ist gewünscht?',
+    fieldName: 'form-date',
+    fieldId: 'form-date',
+    placeholder: 'Zeitraum auswählen',
+  }
+];
+
 const defaultList = [
   { id: 1, name: 'Auswahl' },
   { id: 2, name: 'unter 1.000€' },
@@ -68,6 +77,12 @@ const defaultList = [
 
 const list = [defaultList];
 const selected = list[0];
+
+const yesNoList = [
+  { id: 0, name: '/' },
+  { id: 1, name: 'Ja' },
+  { id: 2, name: 'Nein' },
+];
 
 const items = [
   { label: 'Dein Budget', price: 'Dies hilft uns bei der Ersteinschätzung des Projekts.', list: defaultList, selected: null },
@@ -92,7 +107,7 @@ const auswahlList = [
 ];
 
 const items2 = [
-  { label: 'Wohnmobil', price: '+ 6,00 EUR', list: auswahlList, selected: null },
+  { label: 'Wohnmobil', price: '+ 6,00 EUR', list: yesNoList, selected: null },
   { label: 'Wohnwagen', price: '+ 4,50 EUR', list: auswahlList, selected: null },
   { label: 'Zelt', price: '+ 4,50 EUR', list: auswahlList, selected: null },
   { label: 'PKW', price: '+ 1,50 EUR', list: auswahlList, selected: null },
@@ -126,9 +141,14 @@ const formData = {
   'form-tel': '',
   'form-mail': '',
   'form-comment': '',
+  'form-date': '',
   items: [],
   items2: [],
   services: [], 
+};
+
+const handleUpdateDate = (newDate) => {
+  formData['form-date'] = newDate.join(' - ');
 };
 
 const errorMessage = ref('');
@@ -139,6 +159,7 @@ const errors = ref({
   'form-tel': '',
   'form-mail': '',
   'form-comment': '',
+  'form-date': '',
   items: [],
   items2: [],
   services: [],  
@@ -272,6 +293,20 @@ function scrollToTop() {
                             @input="clearError(field.fieldName)"
                           />
                         </div>
+
+                        <form-datepicker
+                          v-for="(field, index) in dateField"
+                          :key="index"
+                          :label="field.label"
+                          :labelSecond="field.labelSecond"
+                          :option="field.option"
+                          :fieldName="field.fieldName"
+                          :fieldId="field.fieldId"
+                          :placeholder="field.placeholder"
+                          @update:date="handleUpdateDate"
+                          :errorMessage="errors[field.fieldName]"
+                          @input="clearError(field.fieldName)"
+                        />
 
                         <div class="px-3 sm:px-6">
                           <hr class="border-white/20" />

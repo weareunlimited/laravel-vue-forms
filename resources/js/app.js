@@ -1,4 +1,6 @@
 import './bootstrap';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 // Static assets
 import.meta.glob([
@@ -13,6 +15,7 @@ import { createApp } from 'vue';
 import FormInputs from './components/form/FormInputs.vue';
 import FormSelects from './components/form/FormSelects.vue';
 import FormFieldset from './components/form/FormFieldset.vue';
+import FormDatePicker from './components/form/FormDatePicker.vue';
 
 // Typography
 import PageH1 from './components/typography/PageH1.vue';
@@ -37,6 +40,7 @@ if(document.querySelector('#app') != null) {
   app.component('form-inputs', FormInputs)
   app.component('form-selects', FormSelects)
   app.component('form-fieldset', FormFieldset)
+  app.component('form-datepicker', FormDatePicker)
 
   // Typography
   app.component('pageh1', PageH1)
@@ -54,6 +58,8 @@ if(document.querySelector('#app') != null) {
   app.component('request-form', RequestForm)
   app.component('request-form-page', RequestFormPage)
 
+  app.component('VueDatePicker', VueDatePicker);
+  
   // Mount Vue.js app
   app.mount('#app')
 }

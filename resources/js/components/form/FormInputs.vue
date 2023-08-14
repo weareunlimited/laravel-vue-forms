@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
 
   const props = defineProps({
     label: {
@@ -62,8 +62,18 @@
       <label class="block text-sm sm:text-base text-white/50 sm:mt-1.5">{{ labelSecond }}</label>
     </div>
     <div class="sm:col-span-2">
+      <textarea
+        v-if="inputType === 'textarea'"
+        :name="fieldName"
+        :id="fieldId"
+        :placeholder="placeholder"
+        class="block font-normal text-sm sm:text-base bg-transparent w-full h-28 sm:h-16 border rounded-3xl py-2 px-4 text-white ring-1 ring-inset ring-white/20 placeholder:text-white/25 focus:ring-1 focus:ring-inset focus:ring-unlimited-500 border-none"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        @change="checkForInput($event)"
+      ></textarea>
       <input
-        v-if="inputType !== 'textarea'"
+        v-else
         :type="inputType"
         :name="fieldName"
         :id="fieldId"
@@ -73,16 +83,6 @@
         @input="$emit('update:modelValue', $event.target.value)"
         @change="checkForInput($event)"
       />
-      <textarea
-        v-else
-        :name="fieldName"
-        :id="fieldId"
-        :placeholder="placeholder"
-        class="block font-normal text-sm sm:text-base bg-transparent w-full h-28 sm:h-16 border rounded-3xl py-2 px-4 text-white ring-1 ring-inset ring-white/20 placeholder:text-white/25 focus:ring-1 focus:ring-inset focus:ring-unlimited-500 border-none"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
-        @change="checkForInput($event)"
-      ></textarea>
       <div v-if="errorMessage" class="form-error mt-2 px-4 py-2 border-2 rounded-full border-unlimited-600 text-white text-center text-sm font-medium leading-6">{{ errorMessage }}</div>
     </div>
   </div>

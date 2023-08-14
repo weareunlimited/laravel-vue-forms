@@ -64,15 +64,15 @@ watch(selected, (newValue) => {
               '!border-unlimited-500': open,
               'border-b-0': open,
               'rounded-b-none': open,
-              'border-white/20': selected.name === 'Auswahl',
-              'border-white': selected.name !== 'Auswahl',
+              'border-white/20': selected.name === 'Auswahl' || selected.name === '/',
+              'border-white': selected.name !== 'Auswahl' && selected.name !== '/',
             }"
             @click="isClicked = true"
           >
             <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
-              <ChevronDownIcon class="h-5 w-5" :class="[selected.name === 'Auswahl' ? 'text-white/50' : 'text-white']" aria-hidden="true" />
+              <ChevronDownIcon class="h-5 w-5" :class="[selected.name === 'Auswahl' || selected.name === '/' ? 'text-white/50' : 'text-white']" aria-hidden="true" />
             </span>
-            <span class="block truncate text-base" :class="[selected.name === 'Auswahl' ? 'text-white/50' : 'text-white']">{{ selected.name }}</span>
+            <span class="block truncate text-base" :class="[selected.name === 'Auswahl' || selected.name === '/' ? 'text-white/50' : 'text-white']">{{ selected.name }}</span>
           </ListboxButton>
 
           <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
