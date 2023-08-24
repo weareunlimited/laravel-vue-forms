@@ -22,4 +22,8 @@ Route::get('form-page', function () {
     return view('form-page');
 });
 
+Route::get('form-popup', function () {
+    return view('index');
+});
+
 Route::post('/form-submit', [EmailController::class, 'sendEmail']);

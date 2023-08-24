@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios';
-import { form } from "../stores/form.js";
+import { form, openFormIfRequired } from "../stores/form.js";
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot, Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { LinkIcon, PlusIcon, QuestionMarkCircleIcon, CheckIcon, ChevronDownIcon } from '@heroicons/vue/20/solid'
@@ -9,6 +9,9 @@ import { LinkIcon, PlusIcon, QuestionMarkCircleIcon, CheckIcon, ChevronDownIcon 
 onMounted(() => {
   let token = document.head.querySelector('meta[name="csrf-token"]');
   axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+
+  // Hier rufst du die Methode aus dem form.js-Modul auf
+  openFormIfRequired();
 });
 
 const formFields = [
